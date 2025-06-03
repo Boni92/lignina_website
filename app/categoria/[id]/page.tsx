@@ -97,7 +97,7 @@ export default function CategoryPage({ params }: { params: { id: string } }) {
       <footer className="border-t bg-white">
         <div className="container px-4 py-6 md:px-6">
           <p className="text-center text-sm text-zinc-500">
-            © {new Date().getFullYear()} Maderera LIGNINA. Todos los derechos reservados.
+            © 2021 Maderera LIGNINA. Todos los derechos reservados.
           </p>
         </div>
       </footer>

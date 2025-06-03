@@ -6,12 +6,12 @@ import ScrollToTop from "@/components/scroll-to-top"
 
 // Datos simulados de consejos
 const tips = [
-  {
-    id: "1",
-    title: "Cómo cuidar tus muebles de madera",
-    excerpt: "Aprende los mejores consejos para mantener tus muebles de madera como nuevos por más tiempo.",
-    image: "/placeholder.svg?height=800&width=1200",
-    content: `
+	{
+		id: "1",
+		title: "Cómo cuidar tus muebles de madera",
+		excerpt: "Aprende los mejores consejos para mantener tus muebles de madera como nuevos por más tiempo.",
+		image: "/consejos/proteccion.jpg",
+		content: `
       <p>Los muebles de madera son una inversión que, con el cuidado adecuado, pueden durar generaciones. Aquí te presentamos una guía completa para mantener tus muebles de madera en óptimas condiciones.</p>
       
       <h3>Limpieza regular</h3>
@@ -37,13 +37,13 @@ const tips = [
       
       <p>Siguiendo estos consejos, tus muebles de madera mantendrán su belleza y funcionalidad durante muchos años, convirtiéndose en piezas valiosas que podrás disfrutar y quizás incluso pasar a futuras generaciones.</p>
     `,
-  },
-  {
-    id: "2",
-    title: "Tipos de barnices y sus usos",
-    excerpt: "Conoce los diferentes tipos de barnices y cuál es el más adecuado para cada proyecto.",
-    image: "/placeholder.svg?height=800&width=1200",
-    content: `
+	},
+	{
+		id: "2",
+		title: "Tipos de barnices y sus usos",
+		excerpt: "Conoce los diferentes tipos de barnices y cuál es el más adecuado para cada proyecto.",
+		image: "/consejos/durabilidad.jpg",
+		content: `
       <p>Elegir el barniz adecuado puede marcar la diferencia en el resultado final de tus proyectos de madera. Cada tipo de barniz ofrece características específicas que lo hacen más adecuado para determinados usos.</p>
       
       <h3>Barniz de poliuretano</h3>
@@ -73,13 +73,13 @@ const tips = [
       
       <p>La elección del barniz adecuado dependerá del tipo de proyecto, la ubicación del mueble y el nivel de protección que necesites. No dudes en consultar con nuestros expertos para recibir asesoramiento personalizado para tu proyecto específico.</p>
     `,
-  },
-  {
-    id: "3",
-    title: "Cómo prevenir daños por humedad",
-    excerpt: "Protege tus productos de madera de la humedad con estos consejos prácticos.",
-    image: "/placeholder.svg?height=800&width=1200",
-    content: `
+	},
+	{
+		id: "3",
+		title: "Cómo prevenir daños por humedad",
+		excerpt: "Protege tus productos de madera de la humedad con estos consejos prácticos.",
+		image: "/consejos/ubicacion.jpg",
+		content: `
       <p>La humedad es uno de los principales enemigos de la madera. Puede causar deformaciones, hinchazón, grietas y hasta favorecer la aparición de moho y hongos. Afortunadamente, existen diversas estrategias para proteger tus muebles y estructuras de madera contra estos daños.</p>
       
       <h3>Sellado adecuado</h3>
@@ -108,195 +108,180 @@ const tips = [
       
       <p>Proteger tus productos de madera contra la humedad no solo prolonga su vida útil sino que también mantiene su belleza y funcionalidad. Con un mantenimiento adecuado y estas medidas preventivas, tus muebles y estructuras de madera pueden resistir el paso del tiempo incluso en condiciones desafiantes.</p>
     `,
-  },
+	},
 ]
 
 export default function TipPage({ params }: { params: { id: string } }) {
-  const tip = tips.find((t) => t.id === params.id)
+	const tip = tips.find((t) => t.id === params.id)
 
-  if (!tip) {
-    notFound()
-  }
+	if (!tip) {
+		notFound()
+	}
 
-  // Encontrar el índice del consejo actual y calcular los consejos anterior y siguiente
-  const currentIndex = tips.findIndex((t) => t.id === params.id)
-  const prevTip = currentIndex > 0 ? tips[currentIndex - 1] : null
-  const nextTip = currentIndex < tips.length - 1 ? tips[currentIndex + 1] : null
+	// Encontrar el índice del consejo actual y calcular los consejos anterior y siguiente
+	const currentIndex = tips.findIndex((t) => t.id === params.id)
+	const prevTip = currentIndex > 0 ? tips[currentIndex - 1] : null
+	const nextTip = currentIndex < tips.length - 1 ? tips[currentIndex + 1] : null
 
-  return (
-    <div className="flex min-h-screen flex-col">
-      <ScrollToTop />
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-white">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-          <a href="/" className="flex items-center gap-2">
-            <span className="font-serif text-xl font-semibold text-emerald-900">LIGNINA</span>
-          </a>
-          <nav className="hidden md:flex md:items-center md:gap-6">
-            <a href="/" className="text-sm font-medium text-zinc-800 transition-colors hover:text-emerald-700">
-              Inicio
-            </a>
-            <a href="/#nosotros" className="text-sm font-medium text-zinc-800 transition-colors hover:text-emerald-700">
-              Nosotros
-            </a>
-            <a
-              href="/#categorias"
-              className="text-sm font-medium text-zinc-800 transition-colors hover:text-emerald-700"
-            >
-              Productos
-            </a>
-            <a
-              href="/#consejos"
-              className="text-sm font-medium text-emerald-900 transition-colors hover:text-emerald-700"
-            >
-              Consejos
-            </a>
-            <a href="/#contacto" className="text-sm font-medium text-zinc-800 transition-colors hover:text-emerald-700">
-              Contacto
-            </a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <a href="#" className="relative">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                <path d="M3 6h18" />
-                <path d="M16 10a4 4 0 0 1-8 0" />
-              </svg>
-              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-700 text-xs text-white">
-                0
-              </span>
-            </a>
-          </div>
-        </div>
-      </header>
+	return (
+		<div className="flex min-h-screen flex-col">
+			<ScrollToTop />
+			{/* Header */}
+			<header className="sticky top-0 z-50 w-full border-b bg-white">
+				<div className="container flex h-16 items-center justify-between px-4 md:px-6">
+					<a href="/" className="flex items-center gap-2">
+						<span className="font-serif text-xl font-semibold text-emerald-900">LIGNINA</span>
+					</a>
+					<nav className="hidden md:flex md:items-center md:gap-6">
+						<a href="/" className="text-sm font-medium text-zinc-800 transition-colors hover:text-emerald-700">
+							Inicio
+						</a>
+						<a href="/#nosotros" className="text-sm font-medium text-zinc-800 transition-colors hover:text-emerald-700">
+							Nosotros
+						</a>
+						<a
+							href="/#categorias"
+							className="text-sm font-medium text-zinc-800 transition-colors hover:text-emerald-700"
+						>
+							Productos
+						</a>
+						<a
+							href="/#consejos"
+							className="text-sm font-medium text-emerald-900 transition-colors hover:text-emerald-700"
+						>
+							Consejos
+						</a>
+						<a href="/#contacto" className="text-sm font-medium text-zinc-800 transition-colors hover:text-emerald-700">
+							Contacto
+						</a>
+					</nav>
+					<div className="flex items-center gap-4">
+						<a href="#" className="relative">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								className="h-5 w-5"
+							>
+								<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+								<path d="M3 6h18" />
+								<path d="M16 10a4 4 0 0 1-8 0" />
+							</svg>
+							<span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-700 text-xs text-white">
+								0
+							</span>
+						</a>
+					</div>
+				</div>
+			</header>
 
-      <main className="flex-1">
-        {/* Breadcrumb */}
-        <div className="bg-zinc-50 py-4">
-          <div className="container px-4 md:px-6">
-            <div className="flex items-center gap-2 text-sm text-zinc-600">
-              <Link href="/" className="hover:text-emerald-700">
-                Inicio
-              </Link>
-              <span>/</span>
-              <Link href="/#consejos" className="hover:text-emerald-700">
-                Consejos
-              </Link>
-              <span>/</span>
-              <span className="text-emerald-700">{tip.title}</span>
-            </div>
-          </div>
-        </div>
+			<main className="flex-1">
+				{/* Imagen principal del consejo */}
+				<div className="w-full max-h-[350px] overflow-hidden flex items-center justify-center bg-zinc-100">
+					<Image
+						src={tip.image.replace("placeholder.svg?height=800&width=1200", "/consejos/" + (tip.id === "1" ? "proteccion.jpg" : tip.id === "2" ? "durabilidad.jpg" : tip.id === "3" ? "ubicacion.jpg" : ""))}
+						alt={tip.title}
+						width={800}
+						height={350}
+						className="object-cover w-full h-[220px] md:h-[350px]"
+						priority
+					/>
+				</div>
 
-        {/* Tip Content */}
-        <article className="py-8 md:py-12">
-          <div className="container px-4 md:px-6">
-            <div className="mx-auto max-w-3xl">
-              <Link
-                href="/#consejos"
-                className="mb-6 inline-flex items-center text-sm font-medium text-emerald-700 hover:text-emerald-800"
-              >
-                <ChevronLeft className="mr-1 h-4 w-4" />
-                Volver a consejos
-              </Link>
+				{/* Breadcrumb */}
+				<div className="bg-zinc-50 py-4">
+					<div className="container px-4 md:px-6">
+						<div className="flex items-center gap-2 text-sm text-zinc-600">
+							<Link href="/" className="hover:text-emerald-700">
+								Inicio
+							</Link>
+							<span>/</span>
+							<Link href="/#consejos" className="hover:text-emerald-700">
+								Consejos
+							</Link>
+							<span>/</span>
+							<span className="text-emerald-700">{tip.title}</span>
+						</div>
+					</div>
+				</div>
 
-              <h1 className="font-serif text-3xl font-bold tracking-tight text-emerald-900 md:text-4xl">{tip.title}</h1>
+				{/* Tip Content */}
+				<article className="container px-4 md:px-6">
+					<div className="prose prose-emerald mt-8 max-w-none prose-headings:font-serif prose-headings:text-emerald-900" dangerouslySetInnerHTML={{ __html: tip.content }} />
 
-              <div className="mt-6 overflow-hidden rounded-lg">
-                <Image
-                  src={tip.image || "/placeholder.svg"}
-                  alt={tip.title}
-                  width={1200}
-                  height={800}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
+					{/* Navigation between tips */}
+					<div className="mt-12 flex flex-col gap-4 border-t pt-8 sm:flex-row sm:justify-between">
+						{prevTip ? (
+							<Link
+								href={`/consejos/${prevTip.id}`}
+								className="inline-flex items-center text-sm font-medium text-emerald-700 hover:text-emerald-800"
+							>
+								<ArrowLeft className="mr-2 h-4 w-4" />
+								{prevTip.title}
+							</Link>
+						) : (
+							<div></div>
+						)}
+						{nextTip && (
+							<Link
+								href={`/consejos/${nextTip.id}`}
+								className="inline-flex items-center text-sm font-medium text-emerald-700 hover:text-emerald-800"
+							>
+								{nextTip.title}
+								<ArrowRight className="ml-2 h-4 w-4" />
+							</Link>
+						)}
+					</div>
 
-              <div
-                className="prose prose-emerald mt-8 max-w-none prose-headings:font-serif prose-headings:text-emerald-900"
-                dangerouslySetInnerHTML={{ __html: tip.content }}
-              />
+					{/* Related tips */}
+					<div className="mt-12 border-t pt-8">
+						<h2 className="font-serif text-2xl font-bold text-emerald-900">
+							Otros consejos que te pueden interesar
+						</h2>
+						<div className="mt-6 grid gap-6 sm:grid-cols-2">
+							{tips
+								.filter((t) => t.id !== tip.id)
+								.slice(0, 2)
+								.map((relatedTip) => (
+									<Link
+										key={relatedTip.id}
+										href={`/consejos/${relatedTip.id}`}
+										className="group overflow-hidden rounded-lg bg-white shadow-md transition-all hover:shadow-lg"
+									>
+										<div className="aspect-video w-full overflow-hidden">
+											<Image
+												src={relatedTip.image || "/placeholder.svg"}
+												alt={relatedTip.title}
+												width={600}
+												height={400}
+												className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+											/>
+										</div>
+										<div className="p-4">
+											<h3 className="font-serif text-lg font-semibold text-emerald-900">{relatedTip.title}</h3>
+											<p className="mt-2 text-zinc-600">{relatedTip.excerpt}</p>
+										</div>
+									</Link>
+								))}
+						</div>
+					</div>
+				</article>
+			</main>
 
-              {/* Navigation between tips */}
-              <div className="mt-12 flex flex-col gap-4 border-t pt-8 sm:flex-row sm:justify-between">
-                {prevTip ? (
-                  <Link
-                    href={`/consejos/${prevTip.id}`}
-                    className="inline-flex items-center text-sm font-medium text-emerald-700 hover:text-emerald-800"
-                  >
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    {prevTip.title}
-                  </Link>
-                ) : (
-                  <div></div>
-                )}
-                {nextTip && (
-                  <Link
-                    href={`/consejos/${nextTip.id}`}
-                    className="inline-flex items-center text-sm font-medium text-emerald-700 hover:text-emerald-800"
-                  >
-                    {nextTip.title}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                )}
-              </div>
-
-              {/* Related tips */}
-              <div className="mt-12 border-t pt-8">
-                <h2 className="font-serif text-2xl font-bold text-emerald-900">
-                  Otros consejos que te pueden interesar
-                </h2>
-                <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                  {tips
-                    .filter((t) => t.id !== tip.id)
-                    .slice(0, 2)
-                    .map((relatedTip) => (
-                      <Link
-                        key={relatedTip.id}
-                        href={`/consejos/${relatedTip.id}`}
-                        className="group overflow-hidden rounded-lg bg-white shadow-md transition-all hover:shadow-lg"
-                      >
-                        <div className="aspect-video w-full overflow-hidden">
-                          <Image
-                            src={relatedTip.image || "/placeholder.svg"}
-                            alt={relatedTip.title}
-                            width={600}
-                            height={400}
-                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                          />
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-serif text-lg font-semibold text-emerald-900">{relatedTip.title}</h3>
-                          <p className="mt-2 text-zinc-600">{relatedTip.excerpt}</p>
-                        </div>
-                      </Link>
-                    ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t bg-white">
-        <div className="container px-4 py-6 md:px-6">
-          <p className="text-center text-sm text-zinc-500">
-            © {new Date().getFullYear()} Maderera LIGNINA. Todos los derechos reservados.
-          </p>
-        </div>
-      </footer>
-    </div>
-  )
+			{/* Footer */}
+			<footer className="border-t bg-white">
+				<div className="container px-4 py-6 md:px-6">
+					<p className="text-center text-sm text-zinc-500">
+						© 2021 Maderera LIGNINA. Todos los derechos reservados.
+					</p>
+				</div>
+			</footer>
+		</div>
+	)
 }

@@ -23,7 +23,7 @@ export default function Home() {
               <span className="sr-only">Menú</span>
             </Button>
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.png" alt="Maderera LIGNINA" width={40} height={40} className="h-10 w-auto" />
+              
               <span className="hidden font-serif text-xl font-semibold text-emerald-900 md:inline-block">LIGNINA</span>
             </Link>
           </div>
@@ -57,13 +57,13 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex md:items-center md:gap-2">
+            {/* <div className="hidden md:flex md:items-center md:gap-2">
               <Input type="search" placeholder="Buscar productos..." className="h-9 w-[200px] md:w-[250px]" />
               <Button size="icon" variant="ghost">
                 <Search className="h-4 w-4" />
                 <span className="sr-only">Buscar</span>
               </Button>
-            </div>
+            </div> */}
             <Button variant="outline" size="icon" className="relative">
               <ShoppingCart className="h-5 w-5" />
               <span className="sr-only">Carrito</span>
@@ -79,8 +79,8 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative h-[500px] overflow-hidden">
           <Image
-            src="/placeholder.svg?height=1080&width=1920"
-            alt="Madera de calidad"
+            src="/cover/cover.jpg"
+            alt="cover - Madera de calidad"
             width={1920}
             height={1080}
             className="absolute inset-0 h-full w-full object-cover"
@@ -95,12 +95,11 @@ export default function Home() {
               Más de 30 años ofreciendo la mejor calidad en maderas para decoración, construcción y mobiliario
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button className="bg-emerald-700 hover:bg-emerald-800">
-                Ver productos
-                <ChevronRight className="ml-2 h-4 w-4" />
+              <Button asChild className="bg-emerald-700 hover:bg-emerald-800">
+                <a href="#categorias">Ver productos</a>
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-emerald-900">
-                Contactar
+              <Button asChild variant="outline" className="border-white text-black hover:bg-white hover:text-emerald-900">
+                <a href="#contacto">Contactar</a>
               </Button>
             </div>
           </div>
@@ -131,13 +130,14 @@ export default function Home() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
-              <div className="relative h-[300px] overflow-hidden rounded-lg md:h-full">
+              <div className="relative h-[300px] overflow-hidden rounded-lg md:h-full flex items-center justify-center">
                 <Image
-                  src="/placeholder.svg?height=600&width=800"
-                  alt="Nuestra planta"
+                  src="/nosotros/nosotros.jpg"
+                  alt="nosotros - Nuestra planta"
                   width={800}
                   height={600}
-                  className="h-full w-full object-cover"
+                  className="object-contain"
+                  style={{ maxWidth: '70%', maxHeight: '70%' }}
                 />
               </div>
             </div>
@@ -215,7 +215,7 @@ export default function Home() {
         <div className="container px-4 py-12 md:px-6">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div>
-              <h3 className="font-serif text-lg font-semibold text-emerald-900">Contacto</h3>
+              <h3 id="contacto" className="font-serif text-lg font-semibold text-emerald-900">Contacto</h3>
               <ul className="mt-4 space-y-3">
                 <li className="flex items-start gap-2">
                   <Phone className="mt-0.5 h-5 w-5 text-emerald-700" />
@@ -238,13 +238,16 @@ export default function Home() {
                 </li>
               </ul>
               <div className="mt-4 h-[150px] overflow-hidden rounded-lg bg-zinc-100">
-                <Image
-                  src="/placeholder.svg?height=300&width=600"
-                  alt="Mapa de ubicación"
-                  width={600}
-                  height={300}
-                  className="h-full w-full object-cover"
-                />
+                <iframe
+                  src="https://www.google.com/maps?q=Av.+San+Mart%C3%ADn+1234,+Trenque+Lauquen,+Buenos+Aires,+Argentina&output=embed"
+                  width="100%"
+                  height="150"
+                  style={{ border: 0 }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Mapa de ubicación"
+                ></iframe>
               </div>
             </div>
             <div>
@@ -311,7 +314,7 @@ export default function Home() {
           </div>
           <div className="mt-12 border-t pt-8 text-center">
             <p className="text-sm text-zinc-500">
-              © {new Date().getFullYear()} Maderera LIGNINA. Todos los derechos reservados.
+              © 2021 Maderera LIGNINA. Todos los derechos reservados.
             </p>
           </div>
         </div>

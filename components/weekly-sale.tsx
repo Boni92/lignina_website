@@ -9,7 +9,7 @@ export default function WeeklySale() {
       <div className="mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-lg md:flex">
         <div className="md:w-1/2">
           <Image
-            src="/placeholder.svg?height=600&width=800"
+            src="/venta de la semana/bancodemaderab.jpg"
             alt="Banco de madera"
             width={800}
             height={600}
@@ -52,12 +52,12 @@ export default function WeeklySale() {
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button className="bg-emerald-700 hover:bg-emerald-800">Agregar al carrito</Button>
-            <Button
+            {/* <Button
               variant="outline"
               className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800"
             >
               Ver detalles
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
